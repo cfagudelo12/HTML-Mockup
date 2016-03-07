@@ -1,0 +1,48 @@
+<div class="container">
+    <div style="width:65%; float:left;" ng-hide="creating"> 
+        <h2>My feature models</h2>
+        <div ng-model="featureModels">
+            <button class="btn btn-default" ng-click="createFeatureModel()" aria-label="Create">Create</button>
+            <p class="input-group" ng-repeat="featureModel in featureModels" style="padding:5px 10px; cursor: move;">
+                <input type="text" ng-model="featureModel" class="form-control">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" ng-click="" aria-label="Configure">Configure</button>
+                    <button class="btn btn-default" ng-click="" aria-label="Edit">Edit</button>
+                    <button class="btn btn-danger" ng-click="removeTodo($index)" aria-label="Remove">X</button>
+                </span>
+            </p>
+        </div>
+    </div>
+    <div style="width:35%; float:right;" ng-hide="creating">
+        <h2>Shared feature models</h2>
+        <div ng-model="eFeatureModels">
+            <p class="input-group" ng-repeat="eFeatureModel in eFeatureModels" style="padding:5px 10px; cursor: move;">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" ng-click="" aria-label="Configure">Configure</button>
+                    <button class="btn btn-default" ng-click="" aria-label="Edit">Edit</button>
+                </span>
+            </p>
+        </div>
+    </div>
+    <div ng-show="creating">
+        <h2>Create new Feature Model</h2>
+        <form  novalidate class="simple-form">
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-2 control-label">Title</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="featureModel.title">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-2 control-label">Description</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="featureModel.description">
+                    <span class="help-block">Describe the content of your new feature model</span>
+                </div>
+            </div>
+            <input type="button" ng-click="reset()" value="Clear" />
+            <input type="submit" ng-click="saveFeatureModel(featureModel)" value="Save" />
+        </form>
+    </div>            
+</div>
+
